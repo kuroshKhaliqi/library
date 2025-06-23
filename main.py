@@ -29,8 +29,20 @@ for x in range(0, len(btn_list)):
     btn1 = Button(side_nav, text=btn_list[x], font=('Arial', 20))
     btn1.grid(row=current_row, column=0, sticky=EW, pady=20, padx=200)
     current_row +=1
-
-
+#HW: create the main panel frame(the greeen container)with main frame as parent
+main_panel = Frame(main_frame, bg='green')
+# place this main panel into the main frame using .grid
+main_panel.grid(row=0, column=1, sticky=NSEW)
+#configue the rows and colums of main panel 
+main_panel.rowconfigure(index=0, minsize=0.2 * WIN_HEIGHT)
+main_panel.rowconfigure(index=1, minsize=0.8 * WIN_HEIGHT)
+main_panel.columnconfigure(index=0, minsize=0.7 * WIN_WIDTH)
+# Create the frames for the 2 blue container with main panel as parent
+blue_frame1 = Frame(main_panel, bg='blue')
+blue_frame2 = Frame(main_panel, bg='blue')
+# place the 2 blue containers using .grid 
+blue_frame1.grid(row=0, column=0, sticky=NSEW, pady=10)
+blue_frame2.grid(row=1, column=0, sticky=NSEW, pady=20)
 
 
 mainloop()
