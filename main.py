@@ -48,11 +48,14 @@ blue_frame2.grid(row=1, column=0, sticky=NSEW, pady=20)
 search_image = PhotoImage(file="search icon.png")
 search_btn = Button(blue_frame1, image=search_image)
 search_btn.grid(row=0, column=0)
-search_field = Entry(blue_frame1, text='Start Searching...')
-search_field.grid(row=0, column=1)
+search_field = Entry(blue_frame1, text='Start Searching...', width=30, bg='yellow', font=('Arial', 35))
+search_field.grid(row=0, column=1, pady=10)
 
-my_book_btn = Button(blue_frame1, text='My Books')
-my_book_btn.grid(row=1, column=0)
+my_book_btn = Button(blue_frame1, text='My Books', font=('Arial', 35))
+my_book_btn.grid(row=1, column=1, sticky=NSEW)
+
+
 
 #HW: style the search button width height and bg the search field and my book btn(hint: go online and search how to style buttons on tkinter)
+
 mainloop()
