@@ -1,4 +1,36 @@
 from tkinter import *
+
+books_label_list = [
+    {
+        "author": 'Craig Steele',
+        "title": 'Step By Step Coding Course',
+        "img_url": "book_img/Step_By_Step_Coding_Course.jpg"
+    },{
+        "author": 'Cory Althoff',
+        "title": 'Self Taught Programmer',
+        "img_url": "book_img/Self_Taught_Programmer.jpg"
+    },{
+        "author": 'Philip Robbins',
+        "title": 'Python Programming',
+        "img_url": "book_img/Python_Programming.jpg"
+    },{
+        "author": 'Eric Matthes',
+        "title": 'Python Crash Course',
+        "img_url": "book_img/Python_Crash_Course.jpg"
+    }
+
+]
+
+def create_book_ui(book_data, books_panel){
+    book_frame = Frame(books_panel)
+    #configur book fair grid columns and rows
+    img = PhotoImage(file=book_data.img_url)
+    img_label = Label(book_frame, image=img)
+    img_label.grid(row=0, column=0 )
+    #add the label for the title and the author with the book frame as parent next
+    #  place the into the frame using grid
+}
+
 WIN_WIDTH = 1700
 WIN_HEIGHT = 900
 window = Tk()
@@ -53,6 +85,8 @@ search_field.grid(row=0, column=1, pady=10)
 
 my_book_btn = Button(blue_frame1, text='My Books', font=('Arial', 35))
 my_book_btn.grid(row=1, column=1, sticky=NSEW)
+
+# Book panel
 
 
 
