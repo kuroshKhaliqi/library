@@ -1,35 +1,51 @@
 from tkinter import *
 
-books_label_list = [
+libaray_data_list = [
     {
         "author": 'Craig Steele',
         "title": 'Step By Step Coding Course',
-        "img_url": "book_img/Step_By_Step_Coding_Course.jpg"
-    },{
+        "img_url": "book_img/book.png"
+    }
+    ,{
         "author": 'Cory Althoff',
         "title": 'Self Taught Programmer',
-        "img_url": "book_img/Self_Taught_Programmer.jpg"
+        "img_url": "./book_img/Self_Taught_Programmer.png"
     },{
         "author": 'Philip Robbins',
         "title": 'Python Programming',
-        "img_url": "book_img/Python_Programming.jpg"
+        "img_url": "./book_img/Python_Programming.png"
     },{
         "author": 'Eric Matthes',
         "title": 'Python Crash Course',
-        "img_url": "book_img/Python_Crash_Course.jpg"
+        "img_url": "./book_img/Python_Crash_Course.png"
     }
 
 ]
 
-def create_book_ui(book_data, books_panel){
+# Homework : 
+# Add 6 more books
+# Resize the books images  using GIMP and when you exprot them export them as .png
+
+def create_book_ui(book_data, books_panel, row, column):
     book_frame = Frame(books_panel)
     #configur book fair grid columns and rows
-    img = PhotoImage(file=book_data.img_url)
+    img = PhotoImage(file=book_data["img_url"])
     img_label = Label(book_frame, image=img)
     img_label.grid(row=0, column=0 )
     #add the label for the title and the author with the book frame as parent next
+    title_label = Label(book_frame, text=book_data["title"])
+    title_label.grid(row=1, column=0)
+    author_label = Label(book_frame, text=book_data["author"])
+    author_label.grid(row=2, column=0)
     #  place the into the frame using grid
-}
+    book_frame.grid(row=row, column=column)
+
+def display_books(books_data_list, books_panel):
+    for x in range(0, len(books_data_list)):
+        current_book = books_data_list[x]
+        print(current_book)
+        create_book_ui(current_book, books_panel, 0, x)
+
 
 WIN_WIDTH = 1700
 WIN_HEIGHT = 900
@@ -87,7 +103,7 @@ my_book_btn = Button(blue_frame1, text='My Books', font=('Arial', 35))
 my_book_btn.grid(row=1, column=1, sticky=NSEW)
 
 # Book panel
-
+display_books(libaray_data_list, blue_frame2)
 
 
 #HW: style the search button width height and bg the search field and my book btn(hint: go online and search how to style buttons on tkinter)
