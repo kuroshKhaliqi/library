@@ -1,0 +1,9 @@
+add the data for 10 books 
+add another function for filtering by author 
+
+in authour, books data
+cal declare a filter array
+ read the book data one by one
+for each book checck the author name
+if it matches then we will add  the book to the filter array
+out return filtered array
