@@ -152,10 +152,31 @@ def show_filtered_by_author():
     btn  = Button(pop_up, text="Submmit", command=lambda: display_filtered_books(author_name_entry))
     btn.pack()
 
+
+# develop this function
+def display_filtered_by_price(min_entry, max_entry):
+    # collect the data from the entries
+    # use the filter_by_price function to filter the books
+    # display the filtered books
+    print("test")
+
+
+def show_filtered_by_price():
+    pop_up = Toplevel()
+    min_label = Label(pop_up, text="Min Price")
+    min_label.pack()
+    min_entry = Entry(pop_up)
+    min_entry.pack()
+    max_label = Label(pop_up, text="Max Price")
+    max_label.pack()
+    max_entry = Entry(pop_up)
+    max_entry.pack()
+    submit_btn = Button(pop_up, text = "Enter", command=lambda: display_filtered_by_price(min_entry, max_entry))
+    submit_btn.pack()
 def show_all_books():
     global libaray_data_list, books_conteinter
     display_books(libaray_data_list, books_conteinter)
-btn_list = ['Library', 'Filter By Author', 'Add Collection', 'Publish', 'Lending', 'Managers', 'Barcodes', 'Dashboards', 'Reports']
+btn_list = ['Library', 'Filter By Author', 'Filter By Price', 'Publish', 'Lending', 'Managers', 'Barcodes', 'Dashboards', 'Reports']
 current_row=1
 for x in range(0, len(btn_list)):
     btn1 = None
@@ -163,6 +184,8 @@ for x in range(0, len(btn_list)):
         btn1 = Button(side_nav, text=btn_list[x], font=('Arial', 20), command=show_filtered_by_author)
     elif btn_list[x] == "Library":
         btn1 = Button(side_nav, text=btn_list[x], font=('Arial', 20), command=show_all_books)
+    elif btn_list[x] == "Filter By Price":
+        btn1 = Button(side_nav, text=btn_list[x], font=('Arial', 20), command=show_filtered_by_price)
     else:
         btn1 = Button(side_nav, text=btn_list[x], font=('Arial', 20))
     btn1.grid(row=current_row, column=0, sticky=EW, pady=20, padx=200)
