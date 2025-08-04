@@ -101,6 +101,8 @@ def create_book_ui(book_data, books_panel, row, column):
     title_label.grid(row=1, column=0)
     author_label = Label(book_frame, text=book_data["author"])
     author_label.grid(row=2, column=0)
+    price_label = Label(book_frame, text=f'${book_data["price"]}')
+    price_label.grid(row=3, column=0)
     #  place the into the frame using grid
     book_frame.grid(row=row, column=column)
 
