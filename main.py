@@ -75,7 +75,9 @@ def filter_by_author(author,books_data):
     author_array =[]
     for x in range (0, len(books_data)):
         current_book = books_data[x]
-        if current_book['author'] == author:
+        books_author_lowercase = current_book['author'].lower()
+        author_lowercase = author.lower()
+        if books_author_lowercase.__contains__(author_lowercase):
             author_array.append(current_book)
     return author_array
 
