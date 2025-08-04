@@ -157,13 +157,14 @@ def show_filtered_by_author():
 
 # develop this function
 def display_filtered_by_price(min_entry, max_entry):
+    global books_conteinter
     # collect the data from the entries
     min_price = float(min_entry.get())
     max_price = float(max_entry.get())
     # use the filter_by_price function to filter the books
     filtered_books = filter_by_price(min_price, max_price, library_data_list)
     # display the filtered books
-    print(filtered_books)
+    display_books(filtered_books,books_conteinter )
 
 
 def show_filtered_by_price():
