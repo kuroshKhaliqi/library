@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 
-libaray_data_list = [
+library_data_list = [
     {
         "id": 1,
         "author": 'Craig Steele',
@@ -137,7 +137,7 @@ brand.grid(row=0, column=0)
 def display_filtered_books(author_name_entry):
     global books_conteinter
     author_name = author_name_entry.get()
-    filtered_books = filter_by_author(author_name, libaray_data_list)
+    filtered_books = filter_by_author(author_name, library_data_list)
     if len(filtered_books) == 0:
         messagebox.showinfo(title="Search Completed", message="Book with that author was not found. Please recheck")
     else:
@@ -156,9 +156,12 @@ def show_filtered_by_author():
 # develop this function
 def display_filtered_by_price(min_entry, max_entry):
     # collect the data from the entries
+    min_price = float(min_entry.get())
+    max_price = float(max_entry.get())
     # use the filter_by_price function to filter the books
+    filtered_books = filter_by_price(min_price, max_price, library_data_list)
     # display the filtered books
-    print("test")
+    print(filtered_books)
 
 
 def show_filtered_by_price():
@@ -174,8 +177,8 @@ def show_filtered_by_price():
     submit_btn = Button(pop_up, text = "Enter", command=lambda: display_filtered_by_price(min_entry, max_entry))
     submit_btn.pack()
 def show_all_books():
-    global libaray_data_list, books_conteinter
-    display_books(libaray_data_list, books_conteinter)
+    global library_data_list, books_conteinter
+    display_books(library_data_list, books_conteinter)
 btn_list = ['Library', 'Filter By Author', 'Filter By Price', 'Publish', 'Lending', 'Managers', 'Barcodes', 'Dashboards', 'Reports']
 current_row=1
 for x in range(0, len(btn_list)):
@@ -211,9 +214,9 @@ search_field = Entry(blue_frame1, text='Start Searching...', width=30, bg='yello
 search_field.grid(row=0, column=1, pady=10)
 
 def handle_search(event):
-    global libaray_data_list
+    global library_data_list
     book_title = search_field.get()
-    search_result = search_book_by_name(book_title, library_data_list=libaray_data_list) 
+    search_result = search_book_by_name(book_title, library_data_list=library_data_list) 
     if search_result  !=  None:
         messagebox.showinfo("Book found", f'Book found: {search_result["title"]} by {search_result["author"]}')
     else:
@@ -237,7 +240,7 @@ books_conteinter.columnconfigure(index=2,minsize=200)
 books_conteinter.columnconfigure(index=3,minsize=200)
 books_conteinter.columnconfigure(index=4,minsize=200)
 
-display_books(libaray_data_list, books_conteinter)
+display_books(library_data_list, books_conteinter)
 
 
 #HW: style the search button width height and bg the search field and my book btn(hint: go online and search how to style buttons on tkinter)
